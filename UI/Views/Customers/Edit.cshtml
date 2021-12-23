@@ -1,0 +1,38 @@
+﻿@model UI.Models.ViewModels.Customers.EditCustomerViewModel
+
+@*new view*@
+
+<div class="pb-3">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <form method="post" asp-controller="Customers" asp-action="Edit">
+        @Html.HiddenFor(m => m.CustomerId)
+        <div class="form-group">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CompanyRegistrationNumber" class="control-label"></label>
+            <input asp-for="CompanyRegistrationNumber" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IncorporationDate" class="control-label"></label>
+            <input asp-for="IncorporationDate" type="date" class="form-control" />           
+        </div>
+
+        <div class="form-group">          
+            <label class="control-label" for="Turnover">Turnover in £</label>
+            <input asp-for="Turnover" pattern="^\d+(?:\.\d{1,2})?$" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="IsActive" class="control-label"></label>
+            <input asp-for="IsActive" class="form-control" />
+        </div>
+        <button type="submit" value="Update">Submit</button>
+    </form>
+</div>
+
+<div class="pb-3">
+    <a asp-controller="Customers" asp-action="index">
+        Back to list
+    </a>
+</div>
